@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="539405a3fe1adf51.css" data-precedence="next">
+    <link rel="stylesheet" href="1437dd1eff1d9e54.css" data-precedence="next">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cautio Dashboard</title>
+    <link rel="icon" href="favicon.ico">
+    <meta name="next-size-adjust">
+    <style>
+        .custom-hover:hover {
+            background-color: rgba(59, 130, 246, 0.1) !important;
+            transition: all 0.2s ease-in-out;
+        }
+        .section {
+            display: none;
+        }
+        .section.active {
+            display: block;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .back-btn {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 60;
+            background: rgba(0, 38, 163, 0.9);
+            color: white;
+            border: none;
+            padding: 0.75rem;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s;
+            backdrop-filter: blur(10px);
+        }
+        .back-btn:hover {
+            background: rgba(0, 38, 163, 1);
+            transform: scale(1.1);
+        }
+        .modal {
+            backdrop-filter: blur(4px);
+        }
+        .notification {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .notification.show {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="__variable_3c557b dark font-sans dark:bg-dark-fill-base-400 locale-en" style="--primary-font:'__Inter_e8ce0c', '__Inter_Fallback_e8ce0c'">
+    <!-- Back Button -->
+    <button class="back-btn" onclick="goBack()" title="Go Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <div>
+        <div class="relative">
+            <!-- Sidebar -->
+            <aside class="fixed z-50 h-[calc(100vh-5rem)] rounded-lg dark:bg-dark-fill-base-300" style="margin-top: 5rem; width: 4.68rem; transform: none;">
+                <div class="px-4 pb-3 pt-0">
+                    <div class="mb-1 ml-1.5 mt-1 text-body-s-semibold locale-indic:text-body-l-bold dark:text-dark-base-400">MENU</div>
+                </div>
+                <div class="relative">
+                    <ul class="px-4">
+                        <!-- Clients Menu Item -->
+                        <li id="clients-menu" class="group mb-1 whitespace-nowrap rounded-lg p-3 bg-brand-blue-600">
+                            <a class="ml-px flex items-center justify-between text-body-m-medium locale-indic:text-body-m-bold group-hover:dark:text-dark-base-600 dark:text-dark-base-600 cursor-pointer" onclick="showSection('clients')">
+                                <div class="absolute left-0 h-10 w-1 rounded-full bg-brand-blue-600" style="opacity: 1;"></div>
+                                <div class="flex min-h-6 items-center gap-x-4">
+                                    <div class="w-6">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 9C11.7614 9 14 6.76142 14 4C14 1.23858 11.7614 -1 9 -1C6.23858 -1 4 1.23858 4 4C4 6.76142 6.23858 9 9 9ZM9 11C5.83501 11 0 12.585 0 15.8V18H18V15.8C18 12.585 12.165 11 9 11Z" fill="currentColor"/>
+                                        </svg>
+                                    </div>
+                                    <span class="text-body-s-medium dark:text-dark-base-400">Clients</span>
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <!-- Finance Menu Item -->
+                        <li id="finance-menu" class="group mb-1 whitespace-nowrap rounded-lg p-3 custom-hover">
+                            <a class="ml-px flex items-center justify-between text-body-m-medium locale-indic:text-body-m-bold group-hover:dark:text-dark-base-600 dark:text-dark-base-400 cursor-pointer" onclick="showSection('finance')">
+                                <div class="flex min-h-6 items-center gap-x-4">
+                                    <div class="w-6">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 0C4.03125 0 0 4.03125 0 9C0 13.9688 4.03125 18 9 18C13.9688 18 18 13.9688 18 9C18 4.03125 13.9688 0 9 0ZM9 2.8125C10.125 2.8125 11.0625 3.75 11.0625 4.875C11.0625 6 10.125 6.9375 9 6.9375C7.875 6.9375 6.9375 6 6.9375 4.875C6.9375 3.75 7.875 2.8125 9 2.8125ZM11.8125 14.625H6.1875C5.90625 14.625 5.625 14.3438 5.625 14.0625C5.625 11.8125 7.5 10.6875 9 10.6875C10.5 10.6875 12.375 11.8125 12.375 14.0625C12.375 14.3438 12.0938 14.625 11.8125 14.625Z" fill="currentColor"/>
+                                        </svg>
+                                    </div>
+                                    <span class="text-body-s-medium dark:text-dark-base-400">Finance</span>
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <!-- Inventory Menu Item -->
+                        <li id="inventory-menu" class="group mb-1 whitespace-nowrap rounded-lg p-3 custom-hover">
+                            <a class="ml-px flex items-center justify-between text-body-m-medium locale-indic:text-body-m-bold group-hover:dark:text-dark-base-600 dark:text-dark-base-400 cursor-pointer" onclick="showSection('inventory')">
+                                <div class="flex min-h-6 items-center gap-x-4">
+                                    <div class="w-6">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M2 2V4H16V2H2ZM2 16H16V6H2V16ZM4 8H14V14H4V8Z" fill="currentColor"/>
+                                        </svg>
+                                    </div>
+                                    <span class="text-body-s-medium dark:text-dark-base-400">Inventory</span>
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <!-- Ground Operations Menu Item -->
+                        <li id="ground-operations-menu" class="group mb-1 whitespace-nowrap rounded-lg p-3 custom-hover">
+                            <a class="ml-px flex items-center justify-between text-body-m-medium locale-indic:text-body-m-bold group-hover:dark:text-dark-base-600 dark:text-dark-base-400 cursor-pointer" onclick="showSection('ground-operations')">
+                                <div class="flex min-h-6 items-center gap-x-4">
+                                    <div class="w-6">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.1915 4.38328L15.1248 3.83328L14.1165 2.02495C13.6915 1.24995 12.9248 0.78328 12.1082 0.791614H7.44984C6.69984 0.791614 5.9915 1.18328 5.54984 1.83328L4.2665 3.74161L2.1165 4.39995C1.2665 4.66662 0.666504 5.52495 0.666504 6.49995V7.52495C0.666504 8.62495 1.5665 9.52495 2.6665 9.52495H3.99984V11.5249C3.99984 12.6249 4.89984 13.5249 5.99984 13.5249H11.9998C13.0998 13.5249 13.9998 12.6249 13.9998 11.5249V9.52495H15.3332C16.4332 9.52495 17.3332 8.62495 17.3332 7.52495V6.49995C17.3332 5.52495 16.7332 4.66662 15.8832 4.39995L16.1915 4.38328ZM5.99984 11.5249V9.52495H11.9998V11.5249H5.99984ZM2.6665 7.52495V6.49995L4.99984 5.74995L6.49984 3.52495H11.4998L12.9998 5.74995L15.3332 6.49995V7.52495H2.6665Z" fill="currentColor"/>
+                                        </svg>
+                                    </div>
+                                    <span class="text-body-s-medium dark:text-dark-base-400">Ground operations</span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- User Section -->
+                <div class="absolute bottom-4 left-4 right-4">
+                    <button onclick="logout()" class="w-full p-3 rounded-lg custom-hover text-left text-body-s-medium dark:text-dark-base-400">
+                        <div class="flex items-center gap-x-4">
+                            <div class="w-6">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13 3L11.59 4.41L14.17 7H6V9H14.17L11.59 11.59L13 13L18 8L13 3ZM2 2H9V0H2C0.9 0 0 0.9 0 2V16C0 17.1 0.9 18 2 18H9V16H2V2Z" fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <span>Logout</span>
+                        </div>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <div class="ml-[4.68rem] min-h-screen">
+                <!-- Header -->
+                <div class="sticky top-0 z-40 bg-dark-fill-base-400 border-b border-dark-base-500 px-6 py-4">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center gap-2">
+                                <svg class="h-8 w-8 rounded-lg" width="32" height="32" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="1080" height="1080" fill="#0026A3"></rect>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M173 540.227C173 758.862 308.449 913 540.568 913C771.596 913 907.044 758.862 907.044 540.227C907.044 322.685 771.596 168 540.568 168C308.449 168.547 173 322.685 173 540.227ZM694.04 409.592C700.048 409.592 704.963 414.511 704.963 420.524C704.963 427.629 704.964 435.282 705.51 442.934C707.694 550.065 710.425 684.526 543.845 743.558C541.66 744.104 538.93 744.104 536.745 743.558C370.165 684.526 372.896 549.519 375.081 442.934C375.081 435.282 375.627 427.629 375.627 420.524C375.627 414.511 380.542 409.592 386.55 409.592C445.536 407.952 492.506 390.461 532.922 354.933C537.291 351.107 543.845 351.107 548.214 354.933C588.084 389.915 635.054 407.406 694.04 409.592Z" fill="white"></path>
+                                </svg>
+                                <span class="text-xl font-semibold dark:text-dark-base-600">Cautio</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Area -->
+                <div class="p-6">
+                    <!-- Clients Section -->
+                    <div id="clients-section" class="section active">
+                        <div class="mb-6">
+                            <h1 class="text-heading-4 dark:text-dark-base-600 mb-2">Clients Management</h1>
+                            <p class="text-body-m-regular dark:text-dark-base-500">Manage your customer relationships and leads</p>
+                        </div>
+
+                        <!-- Tabs -->
+                        <div class="border-b border-dark-base-500 mb-6">
+                            <nav class="flex space-x-8">
+                                <button class="tab-btn active py-2 px-1 border-b-2 border-brand-blue-600 text-brand-blue-600 text-body-m-medium" data-tab="add">Add</button>
+                                <button class="tab-btn py-2 px-1 border-b-2 border-transparent text-dark-base-400 hover:text-dark-base-300 text-body-m-medium" data-tab="poc">POC</button>
+                                <button class="tab-btn py-2 px-1 border-b-2 border-transparent text-dark-base-400 hover:text-dark-base-300 text-body-m-medium" data-tab="onboarded">Onboarded customers</button>
+                                <button class="tab-btn py-2 px-1 border-b-2 border-transparent text-dark-base-400 hover:text-dark-base-300 text-body-m-medium" data-tab="closed">Closed leads</button>
+                            </nav>
+                        </div>
+
+                        <!-- Add Tab Content -->
+                        <div id="add-tab" class="tab-content active">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Add New Lead Card -->
+                                <div class="bg-dark-fill-base-300 rounded-lg p-6 border border-dark-base-500 hover:border-brand-blue-600 cursor-pointer transition-all duration-200 hover:shadow-lg hover:transform hover:scale-105" onclick="showModal('addLeadModal')">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 bg-brand-blue-600 rounded-lg flex items-center justify-center">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" fill="white"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-heading-6 dark:text-dark-base-600">Add new lead</h3>
+                                            <p class="text-body-s-regular dark:text-dark-base-500">Create a new potential customer lead</p>
+                                        </div>
+                                    </div>
+                                    <button class="w-full bg-brand-blue-600 hover:bg-brand-blue-700 text-white py-3 px-4 rounded-lg text-body-m-medium transition-colors">
+                                        Add New Lead
+                                    </button>
+                                </div>
+
+                                <!-- Add New Customer Card -->
+                                <div class="bg-dark-fill-base-300 rounded-lg p-6 border border-dark-base-500 hover:border-brand-blue-600 cursor-pointer transition-all duration-200 hover:shadow-lg hover:transform hover:scale-105" onclick="showModal('addCustomerModal')">
+                                    <div class="flex items-center gap-4 mb-4">
+                                        <div class="w-12 h-12 bg-success-600 rounded-lg flex items-center justify-center">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12ZM12 14C8.68629 14 2 15.6863 2 19V21H22V19C22 15.6863 15.3137 14 12 14Z" fill="white"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <h3 class="text-heading-6 dark:text-dark-base-600">Add new customer</h3>
+                                            <p class="text-body-s-regular dark:text-dark-base-500">Onboard a new customer</p>
+                                        </div>
+                                    </div>
+                                    <button class="w-full bg-success-600 hover:bg-success-700 text-white py-3 px-4 rounded-lg text-body-m-medium transition-colors">
+                                        Add New Customer
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- POC Tab Content -->
+                        <div id="poc-tab" class="tab-content">
+                            <div class="bg-dark-fill-base-300 rounded-lg p-8 border border-dark-base-500 text-center">
+                                <h3 class="text-heading-6 dark:text-dark-base-600 mb-2">POC Customers</h3>
+                                <p class="text-body-m-regular dark:text-dark-base-500">No POC customers available</p>
+                            </div>
+                        </div>
+
+                        <!-- Onboarded Tab Content -->
+                        <div id="onboarded-tab" class="tab-content">
+                            <div class="bg-dark-fill-base-300 rounded-lg p-8 border border-dark-base-500 text-center">
+                                <h3 class="text-heading-6 dark:text-dark-base-600 mb-2">Onboarded Customers</h3>
+                                <p class="text-body-m-regular dark:text-dark-base-500">No onboarded customers available</p>
+                            </div>
+                        </div>
+
+                        <!-- Closed Tab Content -->
+                        <div id="closed-tab" class="tab-content">
+                            <div class="bg-dark-fill-base-300 rounded-lg p-8 border border-dark-base-500 text-center">
+                                <h3 class="text-heading-6 dark:text-dark-base-600 mb-2">Closed Leads</h3>
+                                <p class="text-body-m-regular dark:text-dark-base-500">No closed leads available</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Finance Section -->
+                    <div id="finance-section" class="section">
+                        <div class="mb-6">
+                            <h1 class="text-heading-4 dark:text-dark-base-600 mb-2">Finance Dashboard</h1>
+                            <p class="text-body-m-regular dark:text-dark-base-500">Manage financial operations and reports</p>
+                        </div>
+                        <div class="bg-dark-fill-base-300 rounded-lg p-8 border border-dark-base-500 text-center">
+                            <h3 class="text-heading-6 dark:text-dark-base-600 mb-2">Finance Module</h3>
+                            <p class="text-body-m-regular dark:text-dark-base-500">Finance content will be displayed here</p>
+                        </div>
+                    </div>
+
+                    <!-- Inventory Section -->
+                    <div id="inventory-section" class="section">
+                        <div class="mb-6">
+                            <h1 class="text-heading-4 dark:text-dark-base-600 mb-2">Inventory Management</h1>
+                            <p class="text-body-m-regular dark:text-dark-base-500">Track and manage your inventory</p>
+                        </div>
+                        <div class="bg-dark-fill-base-300 rounded-lg p-8 border border-dark-base-500 text-center">
+                            <h3 class="text-heading-6 dark:text-dark-base-600 mb-2">Inventory Module</h3>
+                            <p class="text-body-m-regular dark:text-dark-base-500">Inventory content will be displayed here</p>
+                        </div>
+                    </div>
+
+                    <!-- Ground Operations Section -->
+                    <div id="ground-operations-section" class="section">
+                        <div class="mb-6">
+                            <h1 class="text-heading-4 dark:text-dark-base-600 mb-2">Ground Operations</h1>
+                            <p class="text-body-m-regular dark:text-dark-base-500">Manage ground operations and logistics</p>
+                        </div>
+                        <div class="bg-dark-fill-base-300 rounded-lg p-8 border border-dark-base-500 text-center">
+                            <h3 class="text-heading-6 dark:text-dark-base-600 mb-2">Ground Operations Module</h3>
+                            <p class="text-body-m-regular dark:text-dark-base-500">Ground operations content will be displayed here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Lead Modal -->
+    <div id="addLeadModal" class="modal fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-dark-fill-base-300 rounded-lg p-6 w-full max-w-md mx-4 border border-dark-base-500">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-heading-6 dark:text-dark-base-600">Add New Lead</h2>
+                <button onclick="hideModal('addLeadModal')" class="text-dark-base-400 hover:text-dark-base-300">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <form id="addLeadForm" class="space-y-4">
+                <div>
+                    <label class="block text-body-s-medium dark:text-dark-base-600 mb-2">Inbound/Outbound</label>
+                    <select name="type" required class="w-full p-3 rounded-lg border border-dark-base-500 bg-dark-fill-base-400 text-dark-base-600 focus:border-brand-blue-600 focus:outline-none">
+                        <option value="">Select Type</option>
+                        <option value="inbound">Inbound</option>
+                        <option value="outbound">Outbound</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-body-s-medium dark:text-dark-base-600 mb-2">Customer Name</label>
+                    <input type="text" name="customerName" placeholder="Enter customer name" required class="w-full p-3 rounded-lg border border-dark-base-500 bg-dark-fill-base-400 text-dark-base-600 placeholder:text-dark-base-500 focus:border-brand-blue-600 focus:outline-none">
+                </div>
+                
+                <div>
+                    <label class="block text-body-s-medium dark:text-dark-base-600 mb-2">Contact</label>
+                    <input type="text" name="contact" placeholder="Enter contact information" required class="w-full p-3 rounded-lg border border-dark-base-500 bg-dark-fill-base-400 text-dark-base-600 placeholder:text-dark-base-500 focus:border-brand-blue-600 focus:outline-none">
+                </div>
+                
+                <div>
+                    <label class="block text-body-s-medium dark:text-dark-base-600 mb-2">Potential fleet size</label>
+                    <input type="number" name="fleetSize" placeholder="Enter fleet size" required class="w-full p-3 rounded-lg border border-dark-base-500 bg-dark-fill-base-400 text-dark-base-600 placeholder:text-dark-base-500 focus:border-brand-blue-600 focus:outline-none">
+                </div>
+                
+                <div>
+                    <label class="block text-body-s-medium dark:text-dark-base-600 mb-2">Status</label>
+                    <select name="status" required class="w-full p-3 rounded-lg border border-dark-base-500 bg-dark-fill-base-400 text-dark-base-600 focus:border-brand-blue-600 focus:outline-none">
+                        <option value="">Select Status</option>
+                        <option value="new">New</option>
+                        <option value="contacted">Contacted</option>
+                        <option value="qualified">Qualified</option>
+                        <option value="proposal">Proposal Sent</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="w-full bg-brand-blue-600 hover:bg-brand-blue-700 text-white py-3 px-4 rounded-lg text-body-m-medium transition-colors">
+                    Add Lead
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Customer Modal -->
+    <div id="addCustomerModal" class="modal fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center">
+        <div class="bg-dark-fill-base-300 rounded-lg p-6 w-full max-w-md mx-4 border border-dark-base-500">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-heading-6 dark:text-dark-base-600">Add New Customer</h2>
+                <button onclick="hideModal('addCustomerModal')" class="text-dark-base-400 hover:text-dark-base-300">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12L19 6.41Z" fill="currentColor"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <form id="addCustomerForm" class="space-y-4">
+                <div>
+                    <label class="block text-body-s-medium dark:text-dark-base-600 mb-2">Form (Use existing template)</label>
+                    <select name="template" required class="w-full p-3 rounded-lg border border-dark-base-500 bg-dark-fill-base-400 text-dark-base-600 focus:border-brand-blue-600 focus:outline-none">
+                        <option value="">Select Template</option>
+                        <option value="template1">Standard Template</option>
+                        <option value="template2">Enterprise Template</option>
+                        <option value="template3">Custom Template</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-body-s-medium dark:text-dark-base-600 mb-2">Customer requirements/KPIs - checklist</label>
+                    <textarea name="requirements" placeholder="Enter customer requirements and KPIs" rows="4" required class="w-full p-3 rounded-lg border border-dark-base-500 bg-dark-fill-base-400 text-dark-base-600 placeholder:text-dark-base-500 focus:border-brand-blue-600 focus:outline-none resize-none"></textarea>
+                </div>
+                
+                <div>
+                    <label class="block text-body-s-medium dark:text-dark-base-600 mb-2">POC - Paid/Free, Direct onboarding</label>
+                    <select name="pocType" required class="w-full p-3 rounded-lg border border-dark-base-500 bg-dark-fill-base-400 text-dark-base-600 focus:border-brand-blue-600 focus:outline-none">
+                        <option value="">Select POC Type</option>
+                        <option value="paid">Paid POC</option>
+                        <option value="free">Free POC</option>
+                        <option value="direct">Direct Onboarding</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-body-s-medium dark:text-dark-base-600 mb-2">POC time</label>
+                    <input type="date" name="pocTime" required class="w-full p-3 rounded-lg border border-dark-base-500 bg-dark-fill-base-400 text-dark-base-600 focus:border-brand-blue-600 focus:outline-none">
+                </div>
+                
+                <button type="submit" class="w-full bg-success-600 hover:bg-success-700 text-white py-3 px-4 rounded-lg text-body-m-medium transition-colors">
+                    Add Customer
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
