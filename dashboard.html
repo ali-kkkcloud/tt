@@ -9,9 +9,11 @@
     <link rel="icon" href="favicon.ico">
     <meta name="next-size-adjust">
     <style>
-        .custom-hover:hover {
-            background-color: rgba(59, 130, 246, 0.1) !important;
-            transition: all 0.2s ease-in-out;
+        .sidebar-width {
+            width: 16rem;
+        }
+        .main-content {
+            margin-left: 16rem;
         }
         .section {
             display: none;
@@ -28,7 +30,7 @@
         .back-btn {
             position: fixed;
             top: 1rem;
-            left: 1rem;
+            left: 17rem;
             z-index: 60;
             background: rgba(0, 38, 163, 0.9);
             color: white;
@@ -42,6 +44,21 @@
         .back-btn:hover {
             background: rgba(0, 38, 163, 1);
             transform: scale(1.1);
+        }
+        @media (max-width: 768px) {
+            .sidebar-responsive {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+            .sidebar-responsive.open {
+                transform: translateX(0);
+            }
+            .main-content-responsive {
+                margin-left: 0;
+            }
+            .back-btn {
+                left: 1rem;
+            }
         }
         .modal {
             backdrop-filter: blur(4px);
@@ -66,102 +83,94 @@
     <div>
         <div class="relative">
             <!-- Sidebar -->
-            <aside class="fixed z-50 h-[calc(100vh-5rem)] rounded-lg dark:bg-dark-fill-base-300" style="margin-top: 5rem; width: 4.68rem; transform: none;">
-                <div class="px-4 pb-3 pt-0">
-                    <div class="mb-1 ml-1.5 mt-1 text-body-s-semibold locale-indic:text-body-l-bold dark:text-dark-base-400">MENU</div>
+            <aside class="fixed left-0 top-0 z-50 h-screen w-64 dark:bg-dark-fill-base-300 border-r border-dark-base-500 sidebar-responsive" style="transform: none;">
+                <div class="p-6">
+                    <!-- Logo Section -->
+                    <div class="flex items-center gap-3 mb-8">
+                        <svg class="h-8 w-8 rounded-lg" width="32" height="32" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="1080" height="1080" fill="#0026A3"></rect>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M173 540.227C173 758.862 308.449 913 540.568 913C771.596 913 907.044 758.862 907.044 540.227C907.044 322.685 771.596 168 540.568 168C308.449 168.547 173 322.685 173 540.227ZM694.04 409.592C700.048 409.592 704.963 414.511 704.963 420.524C704.963 427.629 704.964 435.282 705.51 442.934C707.694 550.065 710.425 684.526 543.845 743.558C541.66 744.104 538.93 744.104 536.745 743.558C370.165 684.526 372.896 549.519 375.081 442.934C375.081 435.282 375.627 427.629 375.627 420.524C375.627 414.511 380.542 409.592 386.55 409.592C445.536 407.952 492.506 390.461 532.922 354.933C537.291 351.107 543.845 351.107 548.214 354.933C588.084 389.915 635.054 407.406 694.04 409.592Z" fill="white"></path>
+                        </svg>
+                        <span class="text-xl font-bold dark:text-dark-base-600">Cautio</span>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <div class="text-xs font-semibold text-dark-base-500 uppercase tracking-wider mb-3">MENU</div>
+                    </div>
                 </div>
-                <div class="relative">
-                    <ul class="px-4">
+                <div class="px-6">
+                    <ul class="space-y-2">
                         <!-- Clients Menu Item -->
-                        <li id="clients-menu" class="group mb-1 whitespace-nowrap rounded-lg p-3 bg-brand-blue-600">
-                            <a class="ml-px flex items-center justify-between text-body-m-medium locale-indic:text-body-m-bold group-hover:dark:text-dark-base-600 dark:text-dark-base-600 cursor-pointer" onclick="showSection('clients')">
-                                <div class="absolute left-0 h-10 w-1 rounded-full bg-brand-blue-600" style="opacity: 1;"></div>
-                                <div class="flex min-h-6 items-center gap-x-4">
-                                    <div class="w-6">
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9 9C11.7614 9 14 6.76142 14 4C14 1.23858 11.7614 -1 9 -1C6.23858 -1 4 1.23858 4 4C4 6.76142 6.23858 9 9 9ZM9 11C5.83501 11 0 12.585 0 15.8V18H18V15.8C18 12.585 12.165 11 9 11Z" fill="currentColor"/>
-                                        </svg>
-                                    </div>
-                                    <span class="text-body-s-medium dark:text-dark-base-400">Clients</span>
-                                </div>
+                        <li id="clients-menu" class="group rounded-lg bg-brand-blue-600">
+                            <a class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-white cursor-pointer" onclick="showSection('clients')">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 10C12.7614 10 15 7.76142 15 5C15 2.23858 12.7614 0 10 0C7.23858 0 5 2.23858 5 5C5 7.76142 7.23858 10 10 10ZM10 12C6.83501 12 0 13.585 0 16.8V20H20V16.8C20 13.585 13.165 12 10 12Z" fill="currentColor"/>
+                                </svg>
+                                <span>Clients</span>
                             </a>
                         </li>
                         
                         <!-- Finance Menu Item -->
-                        <li id="finance-menu" class="group mb-1 whitespace-nowrap rounded-lg p-3 custom-hover">
-                            <a class="ml-px flex items-center justify-between text-body-m-medium locale-indic:text-body-m-bold group-hover:dark:text-dark-base-600 dark:text-dark-base-400 cursor-pointer" onclick="showSection('finance')">
-                                <div class="flex min-h-6 items-center gap-x-4">
-                                    <div class="w-6">
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M9 0C4.03125 0 0 4.03125 0 9C0 13.9688 4.03125 18 9 18C13.9688 18 18 13.9688 18 9C18 4.03125 13.9688 0 9 0ZM9 2.8125C10.125 2.8125 11.0625 3.75 11.0625 4.875C11.0625 6 10.125 6.9375 9 6.9375C7.875 6.9375 6.9375 6 6.9375 4.875C6.9375 3.75 7.875 2.8125 9 2.8125ZM11.8125 14.625H6.1875C5.90625 14.625 5.625 14.3438 5.625 14.0625C5.625 11.8125 7.5 10.6875 9 10.6875C10.5 10.6875 12.375 11.8125 12.375 14.0625C12.375 14.3438 12.0938 14.625 11.8125 14.625Z" fill="currentColor"/>
-                                        </svg>
-                                    </div>
-                                    <span class="text-body-s-medium dark:text-dark-base-400">Finance</span>
-                                </div>
+                        <li id="finance-menu" class="group rounded-lg hover:bg-dark-fill-base-200 transition-colors">
+                            <a class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-dark-base-400 hover:text-dark-base-300 cursor-pointer" onclick="showSection('finance')">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M2 4C2 3.44772 2.44772 3 3 3H17C17.5523 3 18 3.44772 18 4C18 4.55228 17.5523 5 17 5H3C2.44772 5 2 4.55228 2 4ZM2 8C2 7.44772 2.44772 7 3 7H17C17.5523 7 18 7.44772 18 8C18 8.55228 17.5523 9 17 9H3C2.44772 9 2 8.55228 2 8ZM3 11C2.44772 11 2 11.4477 2 12C2 12.5523 2.44772 13 3 13H11C11.5523 13 12 12.5523 12 12C12 11.4477 11.5523 11 11 11H3ZM2 16C2 15.4477 2.44772 15 3 15H17C17.5523 15 18 15.4477 18 16C18 16.5523 17.5523 17 17 17H3C2.44772 17 2 16.5523 2 16Z" fill="currentColor"/>
+                                </svg>
+                                <span>Finance</span>
                             </a>
                         </li>
                         
                         <!-- Inventory Menu Item -->
-                        <li id="inventory-menu" class="group mb-1 whitespace-nowrap rounded-lg p-3 custom-hover">
-                            <a class="ml-px flex items-center justify-between text-body-m-medium locale-indic:text-body-m-bold group-hover:dark:text-dark-base-600 dark:text-dark-base-400 cursor-pointer" onclick="showSection('inventory')">
-                                <div class="flex min-h-6 items-center gap-x-4">
-                                    <div class="w-6">
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M2 2V4H16V2H2ZM2 16H16V6H2V16ZM4 8H14V14H4V8Z" fill="currentColor"/>
-                                        </svg>
-                                    </div>
-                                    <span class="text-body-s-medium dark:text-dark-base-400">Inventory</span>
-                                </div>
+                        <li id="inventory-menu" class="group rounded-lg hover:bg-dark-fill-base-200 transition-colors">
+                            <a class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-dark-base-400 hover:text-dark-base-300 cursor-pointer" onclick="showSection('inventory')">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 3C3.44772 3 3 3.44772 3 4V16C3 16.5523 3.44772 17 4 17H16C16.5523 17 17 16.5523 17 16V4C17 3.44772 16.5523 3 16 3H4ZM5 5H15V15H5V5ZM7 7V13H13V7H7Z" fill="currentColor"/>
+                                </svg>
+                                <span>Inventory</span>
                             </a>
                         </li>
                         
                         <!-- Ground Operations Menu Item -->
-                        <li id="ground-operations-menu" class="group mb-1 whitespace-nowrap rounded-lg p-3 custom-hover">
-                            <a class="ml-px flex items-center justify-between text-body-m-medium locale-indic:text-body-m-bold group-hover:dark:text-dark-base-600 dark:text-dark-base-400 cursor-pointer" onclick="showSection('ground-operations')">
-                                <div class="flex min-h-6 items-center gap-x-4">
-                                    <div class="w-6">
-                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M16.1915 4.38328L15.1248 3.83328L14.1165 2.02495C13.6915 1.24995 12.9248 0.78328 12.1082 0.791614H7.44984C6.69984 0.791614 5.9915 1.18328 5.54984 1.83328L4.2665 3.74161L2.1165 4.39995C1.2665 4.66662 0.666504 5.52495 0.666504 6.49995V7.52495C0.666504 8.62495 1.5665 9.52495 2.6665 9.52495H3.99984V11.5249C3.99984 12.6249 4.89984 13.5249 5.99984 13.5249H11.9998C13.0998 13.5249 13.9998 12.6249 13.9998 11.5249V9.52495H15.3332C16.4332 9.52495 17.3332 8.62495 17.3332 7.52495V6.49995C17.3332 5.52495 16.7332 4.66662 15.8832 4.39995L16.1915 4.38328ZM5.99984 11.5249V9.52495H11.9998V11.5249H5.99984ZM2.6665 7.52495V6.49995L4.99984 5.74995L6.49984 3.52495H11.4998L12.9998 5.74995L15.3332 6.49995V7.52495H2.6665Z" fill="currentColor"/>
-                                        </svg>
-                                    </div>
-                                    <span class="text-body-s-medium dark:text-dark-base-400">Ground operations</span>
-                                </div>
+                        <li id="ground-operations-menu" class="group rounded-lg hover:bg-dark-fill-base-200 transition-colors">
+                            <a class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-dark-base-400 hover:text-dark-base-300 cursor-pointer" onclick="showSection('ground-operations')">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 4C3 3.44772 3.44772 3 4 3H16C16.5523 3 17 3.44772 17 4C17 4.55228 16.5523 5 16 5H4C3.44772 5 3 4.55228 3 4ZM3 10C3 9.44772 3.44772 9 4 9H16C16.5523 9 17 9.44772 17 10C17 10.5523 16.5523 11 16 11H4C3.44772 11 3 10.5523 3 10ZM4 15C3.44772 15 3 15.4477 3 16C3 16.5523 3.44772 17 4 17H16C16.5523 17 17 16.5523 17 16C17 15.4477 16.5523 15 16 15H4Z" fill="currentColor"/>
+                                </svg>
+                                <span>Ground operations</span>
                             </a>
                         </li>
                     </ul>
                 </div>
                 
                 <!-- User Section -->
-                <div class="absolute bottom-4 left-4 right-4">
-                    <button onclick="logout()" class="w-full p-3 rounded-lg custom-hover text-left text-body-s-medium dark:text-dark-base-400">
-                        <div class="flex items-center gap-x-4">
-                            <div class="w-6">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13 3L11.59 4.41L14.17 7H6V9H14.17L11.59 11.59L13 13L18 8L13 3ZM2 2H9V0H2C0.9 0 0 0.9 0 2V16C0 17.1 0.9 18 2 18H9V16H2V2Z" fill="currentColor"/>
-                                </svg>
-                            </div>
-                            <span>Logout</span>
-                        </div>
+                <div class="absolute bottom-6 left-6 right-6">
+                    <button onclick="logout()" class="w-full flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-dark-fill-base-200 transition-colors text-sm font-medium text-dark-base-400 hover:text-dark-base-300">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3C3 2.44772 3.44772 2 4 2H10C10.5523 2 11 2.44772 11 3C11 3.55228 10.5523 4 10 4H4C3.44772 4 3 4.44772 3 5V15C3 15.5523 3.44772 16 4 16H10C10.5523 16 11 16.4477 11 17C11 17.5523 10.5523 18 10 18H4C2.89543 18 2 17.1046 2 16V4C2 2.89543 2.89543 2 4 2ZM13.2929 7.29289C12.9024 7.68342 12.9024 8.31658 13.2929 8.70711L14.5858 10H7C6.44772 10 6 10.4477 6 11C6 11.5523 6.44772 12 7 12H14.5858L13.2929 13.2929C12.9024 13.6834 12.9024 14.3166 13.2929 14.7071C13.6834 15.0976 14.3166 15.0976 14.7071 14.7071L17.7071 11.7071C18.0976 11.3166 18.0976 10.6834 17.7071 10.2929L14.7071 7.29289C14.3166 6.90237 13.6834 6.90237 13.2929 7.29289Z" fill="currentColor"/>
+                        </svg>
+                        <span>Logout</span>
                     </button>
                 </div>
             </aside>
 
             <!-- Main Content -->
-            <div class="ml-[4.68rem] min-h-screen">
+            <div class="ml-64 min-h-screen main-content-responsive">
                 <!-- Header -->
-                <div class="sticky top-0 z-40 bg-dark-fill-base-400 border-b border-dark-base-500 px-6 py-4">
+                <header class="bg-dark-fill-base-400 border-b border-dark-base-500 px-8 py-6">
                     <div class="flex items-center justify-between">
+                        <div>
+                            <h1 class="text-2xl font-bold text-dark-base-600">Dashboard</h1>
+                            <p class="text-sm text-dark-base-500 mt-1">Welcome back to Cautio</p>
+                        </div>
                         <div class="flex items-center gap-4">
-                            <div class="flex items-center gap-2">
-                                <svg class="h-8 w-8 rounded-lg" width="32" height="32" viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="1080" height="1080" fill="#0026A3"></rect>
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M173 540.227C173 758.862 308.449 913 540.568 913C771.596 913 907.044 758.862 907.044 540.227C907.044 322.685 771.596 168 540.568 168C308.449 168.547 173 322.685 173 540.227ZM694.04 409.592C700.048 409.592 704.963 414.511 704.963 420.524C704.963 427.629 704.964 435.282 705.51 442.934C707.694 550.065 710.425 684.526 543.845 743.558C541.66 744.104 538.93 744.104 536.745 743.558C370.165 684.526 372.896 549.519 375.081 442.934C375.081 435.282 375.627 427.629 375.627 420.524C375.627 414.511 380.542 409.592 386.55 409.592C445.536 407.952 492.506 390.461 532.922 354.933C537.291 351.107 543.845 351.107 548.214 354.933C588.084 389.915 635.054 407.406 694.04 409.592Z" fill="white"></path>
+                            <button class="p-2 rounded-lg hover:bg-dark-fill-base-300 transition-colors">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 2C13.3137 2 16 4.68629 16 8C16 11.3137 13.3137 14 10 14C6.68629 14 4 11.3137 4 8C4 4.68629 6.68629 2 10 2ZM10 16C14.4183 16 18 17.7909 18 20H2C2 17.7909 5.58172 16 10 16Z" fill="currentColor" class="text-dark-base-500"/>
                                 </svg>
-                                <span class="text-xl font-semibold dark:text-dark-base-600">Cautio</span>
-                            </div>
+                            </button>
                         </div>
                     </div>
-                </div>
+                </header>
 
                 <!-- Content Area -->
                 <div class="p-6">
