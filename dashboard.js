@@ -34,16 +34,11 @@ function showSection(sectionName) {
     const menuItems = document.querySelectorAll('aside ul li');
     menuItems.forEach(item => {
         item.classList.remove('bg-brand-blue-600');
-        item.classList.add('custom-hover');
+        item.classList.add('hover:bg-dark-fill-base-200');
         const link = item.querySelector('a');
         if (link) {
-            link.classList.remove('dark:text-dark-base-600');
-            link.classList.add('dark:text-dark-base-400');
-        }
-        // Remove active indicator
-        const indicator = item.querySelector('.absolute');
-        if (indicator) {
-            indicator.style.opacity = '0';
+            link.classList.remove('text-white');
+            link.classList.add('text-dark-base-400', 'hover:text-dark-base-300');
         }
     });
     
@@ -51,16 +46,11 @@ function showSection(sectionName) {
     const activeMenuItem = document.getElementById(sectionName + '-menu');
     if (activeMenuItem) {
         activeMenuItem.classList.add('bg-brand-blue-600');
-        activeMenuItem.classList.remove('custom-hover');
+        activeMenuItem.classList.remove('hover:bg-dark-fill-base-200');
         const link = activeMenuItem.querySelector('a');
         if (link) {
-            link.classList.add('dark:text-dark-base-600');
-            link.classList.remove('dark:text-dark-base-400');
-        }
-        // Show active indicator
-        const indicator = activeMenuItem.querySelector('.absolute');
-        if (indicator) {
-            indicator.style.opacity = '1';
+            link.classList.add('text-white');
+            link.classList.remove('text-dark-base-400', 'hover:text-dark-base-300');
         }
     }
 }
