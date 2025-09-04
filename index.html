@@ -1,110 +1,102 @@
 <!DOCTYPE html>
-<html lang="en"
-    data-scrapbook-source="https://beta.cautio.in/en/auth/login?m_logout=false&amp;redirect=fleet?m_logout=false"
-    data-scrapbook-create="20250904045553117">
-
-<head>
+<html lang="en" data-scrapbook-source="https://beta.cautio.in/en/auth/login?m_logout=false&amp;redirect=fleet?m_logout=false" data-scrapbook-create="20250904045553117">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="539405a3fe1adf51.css" data-precedence="next">
-    <link rel="stylesheet" href="1437dd1eff1d9e54.css" data-precedence="next">
+    <link rel="stylesheet" href="style.css" data-precedence="next">
     <title>Cautio</title>
     <link rel="icon" href="favicon.ico">
     <meta name="next-size-adjust">
-</head>
-
-<body class="__variable_3c557b dark font-sans dark:bg-dark-fill-base-400 locale-en"
-    style="--primary-font:'__Inter_e8ce0c', '__Inter_Fallback_e8ce0c'">
-    <div>
-        <div class="ml-5 min-h-screen flex-1 pr-6" style="padding-left:4.68rem;padding-top:0">
-            <div>
-                <div class="grid grid-cols-2">
-                    <div class="relative flex items-center justify-center sm:mt-0">
-                        <div class="absolute inset-0 h-full px-[3.5rem]">
-                            <div class="lines hidden sm:flex sm:h-full sm:w-full sm:justify-between">
-                                <div class="line"></div>
-                                <div class="line"></div>
-                                <div class="line"></div>
-                                <div class="line"></div>
-                                <div class="line"></div>
-                                <div class="line"></div>
-                                <div class="line"></div>
-                            </div>
-                        </div>
-                        <div class="relative z-10 flex items-center justify-center sm:mt-0 sm:h-screen">
-                            <img alt="Auth" fetchpriority="high" width="436" height="436" decoding="async" data-nimg="1"
-                                style="color:transparent" srcset="main-logo.png 1x, main-logo-1.png 2x"
-                                src="main-logo-1.png">
-                        </div>
-                    </div>
-                    <div class="flex justify-center self-center">
-                        <div class="flex w-[27.18rem] flex-col p-4">
-                            <div class="flex justify-center">
-                                <svg class="h-[3.8rem] w-[3.8rem] rounded-2xl" width="60" height="60"
-                                    viewBox="0 0 1080 1080" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="1080" height="1080" fill="#0026A3"></rect>
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M173 540.227C173 758.862 308.449 913 540.568 913C771.596 913 907.044 758.862 907.044 540.227C907.044 322.685 771.596 168 540.568 168C308.449 168.547 173 322.685 173 540.227ZM694.04 409.592C700.048 409.592 704.963 414.511 704.963 420.524C704.963 427.629 704.964 435.282 705.51 442.934C707.694 550.065 710.425 684.526 543.845 743.558C541.66 744.104 538.93 744.104 536.745 743.558C370.165 684.526 372.896 549.519 375.081 442.934C375.081 435.282 375.627 427.629 375.627 420.524C375.627 414.511 380.542 409.592 386.55 409.592C445.536 407.952 492.506 390.461 532.922 354.933C537.291 351.107 543.845 351.107 548.214 354.933C588.084 389.915 635.054 407.406 694.04 409.592Z"
-                                        fill="white"></path>
-                                </svg>
-                            </div>
-                            <div class="my-8 flex flex-col items-center gap-2">
-                                <span class="text-heading-6 text-dark-base-600">Sign in</span>
-                            </div>
-                            <form id="loginForm" class="gap-4" novalidate="">
-                                <div class="mb-5">
-                                    <div class="flex flex-col items-start">
-                                        <label for="email"
-                                            class="mb-2 text-body-s-medium text-dark-base-600">Email</label>
-                                        <input type="email" id="email" placeholder="Enter your email" required
-                                            class="h-12 w-full rounded-lg border border-dark-base-500 bg-transparent px-3 text-body-m-regular text-dark-base-600 placeholder:text-dark-base-500 focus:border-brand-blue-600 focus:outline-none">
-                                    </div>
-                                </div>
-                                <div class="mb-5">
-                                    <div class="flex flex-col items-start">
-                                        <label for="password"
-                                            class="mb-2 text-body-s-medium text-dark-base-600">Password</label>
-                                        <input type="password" id="password" placeholder="Enter your password" required
-                                            class="h-12 w-full rounded-lg border border-dark-base-500 bg-transparent px-3 text-body-m-regular text-dark-base-600 placeholder:text-dark-base-500 focus:border-brand-blue-600 focus:outline-none">
-                                    </div>
-                                </div>
-                                <button type="submit"
-                                    class="mb-4 flex h-12 w-full items-center justify-center rounded-lg bg-brand-blue-600 text-body-m-medium text-white hover:bg-brand-blue-700 focus:outline-none">Sign
-                                    in</button>
-                                <div id="error-message" class="error-message text-red-500 text-center"
-                                    style="display: none;"></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <style type="text/css">
+      :where(html[dir="ltr"]),:where([data-sonner-toaster][dir="ltr"]){--toast-icon-margin-start: -3px;--toast-icon-margin-end: 4px;--toast-svg-margin-start: -1px;--toast-svg-margin-end: 0px;--toast-button-margin-start: auto;--toast-button-margin-end: 0;--toast-close-button-start: 0;--toast-close-button-end: unset;--toast-close-button-transform: translate(-35%, -35%)}:where(html[dir="rtl"]),:where([data-sonner-toaster][dir="rtl"]){--toast-icon-margin-start: 4px;--toast-icon-margin-end: -3px;--toast-svg-margin-start: 0px;--toast-svg-margin-end: -1px;--toast-button-margin-start: 0;--toast-button-margin-end: auto;--toast-close-button-start: unset;--toast-close-button-end: 0;--toast-close-button-transform: translate(35%, -35%)}:where([data-sonner-toaster]){position:fixed;width:var(--width);font-family:ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;--gray1: hsl(0, 0%, 99%);--gray2: hsl(0, 0%, 97.3%);--gray3: hsl(0, 0%, 95.1%);--gray4: hsl(0, 0%, 93%);--gray5: hsl(0, 0%, 90.9%);--gray6: hsl(0, 0%, 88.7%);--gray7: hsl(0, 0%, 85.8%);--gray8: hsl(0, 0%, 78%);--gray9: hsl(0, 0%, 56.1%);--gray10: hsl(0, 0%, 52.3%);--gray11: hsl(0, 0%, 43.5%);--gray12: hsl(0, 0%, 9%);--border-radius: 8px;box-sizing:border-box;padding:0;margin:0;list-style:none;outline:none;z-index:999999999}:where([data-sonner-toaster][data-x-position="right"]){right:max(var(--offset),env(safe-area-inset-right))}:where([data-sonner-toaster][data-x-position="left"]){left:max(var(--offset),env(safe-area-inset-left))}:where([data-sonner-toaster][data-x-position="center"]){left:50%;transform:translate(-50%)}:where([data-sonner-toaster][data-y-position="top"]){top:max(var(--offset),env(safe-area-inset-top))}:where([data-sonner-toaster][data-y-position="bottom"]){bottom:max(var(--offset),env(safe-area-inset-bottom))}:where([data-sonner-toast]){--y: translateY(100%);--lift-amount: calc(var(--lift) * var(--gap));z-index:var(--z-index);position:absolute;opacity:0;transform:var(--y);filter:blur(0);touch-action:none;transition:transform .4s,opacity .4s,height .4s,box-shadow .2s;box-sizing:border-box;outline:none;overflow-wrap:anywhere}:where([data-sonner-toast][data-styled="true"]){padding:16px;background:var(--normal-bg);border:1px solid var(--normal-border);color:var(--normal-text);border-radius:var(--border-radius);box-shadow:0 4px 12px #0000001a;width:var(--width);font-size:13px;display:flex;align-items:center;gap:6px}:where([data-sonner-toast]:focus-visible){box-shadow:0 4px 12px #0000001a,0 0 0 2px #0003}:where([data-sonner-toast][data-y-position="top"]){top:0;--y: translateY(-100%);--lift: 1;--lift-amount: calc(1 * var(--gap))}:where([data-sonner-toast][data-y-position="bottom"]){bottom:0;--y: translateY(100%);--lift: -1;--lift-amount: calc(var(--lift) * var(--gap))}:where([data-sonner-toast]) :where([data-description]){font-weight:400;line-height:1.4;color:inherit}:where([data-sonner-toast]) :where([data-title]){font-weight:500;line-height:1.5;color:inherit}:where([data-sonner-toast]) :where([data-icon]){display:flex;height:16px;width:16px;position:relative;justify-content:flex-start;align-items:center;flex-shrink:0;margin-left:var(--toast-icon-margin-start);margin-right:var(--toast-icon-margin-end)}:where([data-sonner-toast][data-promise="true"]) :where([data-icon])>svg{opacity:0;transform:scale(.8);transform-origin:center;animation:sonner-fade-in .3s ease forwards}:where([data-sonner-toast]) :where([data-icon])>*{flex-shrink:0}:where([data-sonner-toast]) :where([data-icon]) svg{margin-left:var(--toast-svg-margin-start);margin-right:var(--toast-svg-margin-end)}:where([data-sonner-toast]) :where([data-content]){display:flex;flex-direction:column;gap:2px}[data-sonner-toast][data-styled=true] [data-button]{border-radius:4px;padding-left:8px;padding-right:8px;height:24px;font-size:12px;color:var(--normal-bg);background:var(--normal-text);margin-left:var(--toast-button-margin-start);margin-right:var(--toast-button-margin-end);border:none;cursor:pointer;outline:none;display:flex;align-items:center;flex-shrink:0;transition:opacity .4s,box-shadow .2s}:where([data-sonner-toast]) :where([data-button]):focus-visible{box-shadow:0 0 0 2px #0006}:where([data-sonner-toast]) :where([data-button]):first-of-type{margin-left:var(--toast-button-margin-start);margin-right:var(--toast-button-margin-end)}:where([data-sonner-toast]) :where([data-cancel]){color:var(--normal-text...
+    </style>
+  <style type="text/css">
+    
+      :where([data-sonner-toaster]) :where([data-close-button]){border-radius:var(--border-radius);width:24px;height:24px;position:absolute;top:0;right:var(--toast-close-button-end);left:var(--toast-close-button-start);display:flex;justify-content:center;align-items:center;padding:0;background:none;border:none;opacity:0;transition:opacity .2s,background-color .2s;color:var(--normal-text)}:where([data-sonner-toaster]) :where([data-close-button]):hover{background:var(--normal-border)}:where([data-sonner-toaster]) :where([data-close-button]):focus-visible{opacity:1;box-shadow:0 0 0 2px #0003}:where([data-sonner-toast]:hover) :where([data-close-button]),:where([data-sonner-toast]:focus-visible) :where([data-close-button]){opacity:1}[data-sonner-toast][data-styled=true] [data-button-group]{display:flex;gap:4px;flex-shrink:0;margin-left:auto}[data-sonner-toast][data-styled=true] [data-button-group]:first-of-type{margin-left:auto}[data-sonner-toast][data-styled=true][data-action="true"] [data-content]{flex:1}[data-sonner-toast][data-styled=true][data-type="error"]{--normal-bg:var(--gray2);--normal-border:var(--gray4);--normal-text:var(--gray12)}[data-sonner-toast][data-styled=true][data-type="success"]{--normal-bg:var(--gray2);--normal-border:var(--gray4);--normal-text:var(--gray12)}[data-sonner-toast][data-styled=true][data-type="info"]{--normal-bg:var(--gray2);--normal-border:var(--gray4);--normal-text:var(--gray12)}[data-sonner-toast][data-styled=true][data-type="warning"]{--normal-bg:var(--gray2);--normal-border:var(--gray4);--normal-text:var(--gray12)}:where([data-sonner-toast][data-position^="top"]){top:0;--y: translateY(-100%)}:where([data-sonner-toast][data-position^="bottom"]){bottom:0;--y: translateY(100%)}:where([data-sonner-toast][data-state="visible"]){opacity:1;transform:var(--y);height:var(--height)}:where([data-sonner-toast][data-state="dismissing"]){transform:translateY(calc(var(--lift-amount) * -1));height:0;opacity:0}:where([data-sonner-toaster][data-y-position="bottom"]) [data-sonner-toast][data-state="dismissing"]{transform:translateY(calc(var(--lift-amount)))!important}
+    </style>
+  </head>
+  <body>
     <script>
-        // Login functionality
-        document.getElementById('loginForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('error-message');
-
-            // Check credentials
-            if (email === 'admin@gm.com' && password === 'admin123') {
-                // Redirect to dashboard
-                window.location.href = 'dashboard.html';
-            } else {
-                // Show error message
-                errorMessage.textContent = 'Invalid email or password. Please try again.';
-                errorMessage.style.display = 'block';
-
-                // Hide error message after 3 seconds
-                setTimeout(() => {
-                    errorMessage.style.display = 'none';
-                }, 3000);
+      (function() {
+        var k1 = 'data-scrapbook-shadow',
+          k2 = 'data-scrapbook-canvas',
+          k3 = 'data-scrapbook-indeterminate',
+          k4 = 'data-scrapbook-checked',
+          k5 = 'data-scrapbook-selected',
+          k10 = 'data-scrapbook-shadow-mode',
+          k11 = 'data-scrapbook-shadow-clonable',
+          k12 = 'data-scrapbook-shadow-delegates-focus',
+          k13 = 'data-scrapbook-shadow-serializable',
+          k14 = 'data-scrapbook-shadow-slot-assignment',
+          E = document.getElementsByTagName('*'),
+          i = E.length,
+          e, d, s, m;
+        while (i--) {
+          e = E[i];
+          s = e.shadowRoot;
+          if ($s && (d = e.getAttribute(k1))) {
+            if (!s) {
+              try {
+                s = e.attachShadow({
+                  mode: (m = e.getAttribute(k10)) !== null ? m : 'open',
+                  clonable: e.hasAttribute(k11),
+                  delegatesFocus: e.hasAttribute(k12),
+                  serializable: e.hasAttribute(k13),
+                  slotAssignment: (m = e.getAttribute(k14)) !== null ? m : void 0,
+                });
+                s.innerHTML = d;
+              } catch (ex) {
+                console.error(ex);
+              }
             }
-        });
+            e.removeAttribute(k1);
+            e.removeAttribute(k10);
+            e.removeAttribute(k11);
+            e.removeAttribute(k12);
+            e.removeAttribute(k13);
+            e.removeAttribute(k14);
+          }
+          if ($c && (d = e.getAttribute(k2)) !== null) {
+            (function() {
+              var c = e,
+                g = new Image();
+              g.onload = function() {
+                c.getContext('2d').drawImage(g, 0, 0);
+              };
+              g.src = d;
+            })();
+            e.removeAttribute(k2);
+          }
+          if ((d = e.getAttribute(k3)) !== null) {
+            e.indeterminate = true;
+            e.removeAttribute(k3);
+          }
+          if ((d = e.getAttribute(k4)) !== null) {
+            e.checked = d === 'true';
+            e.removeAttribute(k4);
+          }
+          if ((d = e.getAttribute(k5)) !== null) {
+            e.selected = d === 'true';
+            e.removeAttribute(k5);
+          }
+          if ((d = e.getAttribute(k6)) !== null) {
+            e.value = d;
+            e.removeAttribute(k6);
+          }
+          if ((d = e.getAttribute(k7)) !== null) {
+            e.open = d === 'true';
+            e.removeAttribute(k7);
+          }
+          if ((d = e.getAttribute(k8)) !== null) {
+            e.open = d === 'true';
+            e.removeAttribute(k8);
+          }
+          if ((d = e.getAttribute(k9)) !== null) {
+            e.style.cssText += d;
+            e.removeAttribute(k9);
+          }
+        }
+      })();
     </script>
-</body>
-
+  </body>
 </html>
